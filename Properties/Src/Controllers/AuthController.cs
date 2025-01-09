@@ -36,6 +36,10 @@ namespace blog_dotnet_api.Properties.Src.Controllers
             try{
                 var response = await _authService.Login(loginDto);
                 return Ok(response);
+
+
+            } catch(UnauthorizedAccessException ex){
+                return Unauthorized(ex.Message);
             } catch(Exception ex){
                 return BadRequest(ex.Message);
             }

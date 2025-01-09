@@ -30,14 +30,14 @@ namespace blog_dotnet_api.Properties.Src.Servicios.Implements
             var user = await _userRepository.GetUserByEmailAsync(loginDto.Email.ToString());
 
             if(user is null){
-                throw new Exception(message);
+                throw new UnauthorizedAccessException(message);
             }
 
             var hasher = new PasswordHasher<User>();
 
             var result = hasher.VerifyHashedPassword(user, user.PasswordHash, loginDto.Password);
             if(result == PasswordVerificationResult.Failed){
-                throw new Exception(message);
+                throw new UnauthorizedAccessException(message);
             }
 
             var token = _tokenService.GenerateTokenAsync(user);
