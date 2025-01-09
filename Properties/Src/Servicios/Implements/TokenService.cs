@@ -21,7 +21,7 @@ namespace blog_dotnet_api.Properties.Src.Servicios.Implements
         
         public string GenerateTokenAsync(User user){
             
-            var tokenKey = _conf.GetSection("AppSetting:Token").Value!;
+            var tokenKey = _conf.GetSection("AppSettings:Token").Value!;
             
             if(user.Email is null  || tokenKey is null){
                 throw new Exception("Error al generar el token.");
