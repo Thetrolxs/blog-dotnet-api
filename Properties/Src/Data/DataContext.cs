@@ -10,6 +10,6 @@ namespace blog_dotnet_api.Properties.Src.Data
 {
     public class DataContext(DbContextOptions options) : IdentityDbContext<User>(options)
     {
-        
+        public DbSet<Post> Posts {get; set;} = null!;
     }
 }
