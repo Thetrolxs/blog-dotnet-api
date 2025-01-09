@@ -17,7 +17,7 @@ namespace blog_dotnet_api.Properties.Src.Repositories.Implements
         {
             _context = dataContext;
         }
-        public async Task<User> GetUserByEmailAsync(string email)
+        public async Task<User?> GetUserByEmailAsync(string email)
         {
             var user = await _context.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
             return user;

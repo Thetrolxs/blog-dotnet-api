@@ -8,7 +8,7 @@ namespace blog_dotnet_api.Properties.Src.Repositories.Interface
 {
     public interface IUserRepository
     {
-        Task<User> GetUserByEmailAsync(string email);
+        Task<User?> GetUserByEmailAsync(string email);
         Task<bool> VerifyEmail(string email);
         Task<bool> AddUser(User user);
     }
