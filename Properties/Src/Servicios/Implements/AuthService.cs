@@ -12,11 +12,16 @@ namespace blog_dotnet_api.Properties.Src.Servicios.Implements
 {
     public class AuthService : IAuthService
     {
-
-        private readonly IConfiguration _conf;
         private readonly IUserRepository _userRepository;
         private readonly ITokenService _tokenService;
         private readonly IPasswordHasher<User> _pwHash;
+
+        public AuthService(IUserRepository userRepository, ITokenService tokenService, IPasswordHasher<User> passwordHasher)
+        {
+            _userRepository = userRepository;
+            _tokenService = tokenService;
+            _pwHash = passwordHasher;
+        }
 
         public async Task<string> Login(LoginDto loginDto)
         {
