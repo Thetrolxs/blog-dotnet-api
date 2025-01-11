@@ -1,6 +1,7 @@
 using System.Text;
 using blog_dotnet_api.Properties.Src.Data;
 using blog_dotnet_api.Properties.Src.Entities;
+using blog_dotnet_api.Properties.Src.Helpers;
 using blog_dotnet_api.Properties.Src.Repositories.Implements;
 using blog_dotnet_api.Properties.Src.Repositories.Interface;
 using blog_dotnet_api.Properties.Src.Servicios.Implements;
@@ -18,10 +19,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlite("Data Source = blog.db"));
+builder.Services.Configure<CloudinarySetting>(builder.Configuration.GetSection("CloudinarySettings"));
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IPhotoService, PhotoService>();
+
+builder.Services.AddScoped<IPostRepository, PostRepository>();
+builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<DataContext>()
@@ -33,6 +39,7 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
         ValidateIssuerSigningKey = true,
         ValidateIssuer = false,
         ValidateAudience = false,
+        ValidateLifetime = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
             builder.Configuration.GetSection("AppSettings:Token").Value!))
     };
