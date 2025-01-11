@@ -11,8 +11,8 @@ namespace blog_dotnet_api.Properties.Src.Entities
         public string Title {get; set;} = string.Empty;
         public DateTime PublishedDate {get; set;}
         public string ImageUrl {get; set;} = string.Empty;
-        public int UserId {get; set;}
-        public User? User {get; set;}
+        public string UserId {get; set;}
+        public User User {get; set;}
 
     }
 }
