@@ -9,6 +9,6 @@ namespace blog_dotnet_api.Properties.Src.Repositories.Interface
     public interface IPostRepository
     {
         Task<IEnumerable<Post>> GetPostsAsync();
-        Task AddPost(Post post);
+        Task <Post>AddPost(Post post);
     }
 }

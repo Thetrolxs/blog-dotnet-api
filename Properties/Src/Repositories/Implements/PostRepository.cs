@@ -17,10 +17,11 @@ namespace blog_dotnet_api.Properties.Src.Repositories.Implements
         {
             _context = dataContext;
         }
-        public async Task AddPost(Post post)
+        public async Task<Post> AddPost(Post post)
         {
             await _context.Posts.AddAsync(post);
             await _context.SaveChangesAsync();
+            return post;
         }
 
         public async Task<IEnumerable<Post>> GetPostsAsync()
