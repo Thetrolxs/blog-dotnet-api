@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using blog_dotnet_api.Properties.Src.DTOs;
 using blog_dotnet_api.Properties.Src.Entities;
 using blog_dotnet_api.Properties.Src.Repositories.Implements;
+using blog_dotnet_api.Properties.Src.Repositories.Interface;
 using blog_dotnet_api.Properties.Src.Servicios.Interface;
 using CloudinaryDotNet;
 
@@ -13,14 +14,12 @@ namespace blog_dotnet_api.Properties.Src.Servicios.Implements
     public class PostService : IPostService
     {
 
-        private readonly PostRepository _postRepository;
-        private readonly Cloudinary _cloudinary;
+        private readonly IPostRepository _postRepository;
         private readonly IPhotoService _photoService;
 
-        public PostService(PostRepository postRepository, Cloudinary cloudinary, IPhotoService photoService)
+        public PostService(IPostRepository postRepository, IPhotoService photoService)
         {
             _postRepository = postRepository;
-            _cloudinary = cloudinary;
             _photoService = photoService;
         }
 
