@@ -13,7 +13,6 @@ namespace blog_dotnet_api.Properties.Src.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
     public class PostController : ControllerBase
     {
         private readonly IPostService _postService;
@@ -23,14 +22,14 @@ namespace blog_dotnet_api.Properties.Src.Controllers
             _postService = postService;
         }
 
-        [HttpGet()]
-        public ActionResult<IActionResult> GetPost()
+        [HttpGet]
+        public async Task<IActionResult> GetPost()
         {
-            var posts =  _postService.GetPostsAsync().Result;
+            var posts = await _postService.GetPostsAsync();
             return Ok(posts);
         }
 
-        [HttpPost()]
+        [HttpPost]
         public async Task<IActionResult> AddPost([FromForm] CreatePostDto createPostDto)
         {
             if(!ModelState.IsValid)
