@@ -11,7 +11,7 @@ using blog_dotnet_api.Properties.Src.Data;
 namespace blog_dotnet_api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250111011211_Initial")]
+    [Migration("20250111023941_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -165,15 +165,13 @@ namespace blog_dotnet_api.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Posts");
                 });
@@ -297,7 +295,9 @@ namespace blog_dotnet_api.Migrations
                 {
                     b.HasOne("blog_dotnet_api.Properties.Src.Entities.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
