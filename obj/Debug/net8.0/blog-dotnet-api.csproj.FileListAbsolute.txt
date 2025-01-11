@@ -5,6 +5,7 @@ C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\blog-dotnet-
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\blog-dotnet-api.runtimeconfig.json
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\blog-dotnet-api.dll
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\blog-dotnet-api.pdb
+C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\CloudinaryDotNet.dll
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\DotNetEnv.dll
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\Humanizer.dll
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
@@ -46,6 +47,7 @@ C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\Microsoft.Id
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\Sprache.dll
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\SQLitePCLRaw.batteries_v2.dll
 C:\Users\nasho\OneDrive\Escritorio\blog-dotnet-api\bin\Debug\net8.0\SQLitePCLRaw.core.dll
