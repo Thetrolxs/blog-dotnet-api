@@ -23,7 +23,7 @@ namespace blog_dotnet_api.Properties.Src.Servicios.Implements
             _pwHash = passwordHasher;
         }
 
-        public async Task<string> Login(LoginDto loginDto)
+        public async Task<TokenDto> Login(LoginDto loginDto)
         {
             string message = "Credenciales incorrectar, intente nuevamente.";
 
@@ -40,12 +40,16 @@ namespace blog_dotnet_api.Properties.Src.Servicios.Implements
                 throw new UnauthorizedAccessException(message);
             }
 
-            var token = _tokenService.GenerateTokenAsync(user);
+            var tokenString = _tokenService.GenerateTokenAsync(user);
 
-            return token;
+            var tokenDto = new TokenDto{
+                Token = tokenString
+            };
+
+            return tokenDto;
         }
 
-        public async Task<string> Register(RegisterDto registerDto)
+        public async Task<TokenDto> Register(RegisterDto registerDto)
         {
             var existingUser = await _userRepository.GetUserByEmailAsync(registerDto.Email);
 
@@ -64,9 +68,13 @@ namespace blog_dotnet_api.Properties.Src.Servicios.Implements
 
             var userRegistered = await _userRepository.GetUserByEmailAsync(user.Email) ?? throw new Exception("Error en el servidor.");
             
-            var token = _tokenService.GenerateTokenAsync(userRegistered);
+            var tokenString = _tokenService.GenerateTokenAsync(userRegistered);
 
-            return token;
+            var tokenDto = new TokenDto{
+                Token = tokenString
+            };
+
+            return tokenDto;
         } 
 
     }
