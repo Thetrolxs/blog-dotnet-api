@@ -26,7 +26,7 @@ namespace blog_dotnet_api.Properties.Src.Helpers
                 }
             }
 
-            return new ValidationResult("El archivo es obligatorio");
+            return ValidationResult.Success;
         }
     }
 }
