@@ -8,8 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace blog_dotnet_api.Properties.Src.Data
 {
-    public class DataContext(DbContextOptions options) : IdentityDbContext<User>(options)
+    public class DataContext : IdentityDbContext<User>
     {
+        public DataContext(DbContextOptions<DataContext> options): base(options){}
         public DbSet<Post> Posts {get; set;} = null!;
     }
 }
