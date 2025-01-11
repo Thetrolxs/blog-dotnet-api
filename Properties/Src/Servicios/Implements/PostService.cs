@@ -37,7 +37,7 @@ namespace blog_dotnet_api.Properties.Src.Servicios.Implements
                 Title = createPostDto.Title,
                 PublishedDate = DateTime.Now,
                 ImageUrl = result.SecureUrl.AbsoluteUri,
-                UserId = int.Parse(userId)
+                UserId = userId
             };
 
             await _postRepository.AddPost(post);
